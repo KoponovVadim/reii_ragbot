@@ -1,3 +1,5 @@
+from importlib import metadata
+
 from sqlalchemy import Table, Column, Integer, String, Text
 
 
