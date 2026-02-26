@@ -4,6 +4,7 @@ from typing import List, Dict, Any
 from schemas.contact import ContactRequest
 from database.repositories import contact as contact_repo
 
+
 async def process_contact_request(
         db:Database,
         request: ContactRequest,
