@@ -13,3 +13,10 @@ async def database_disconnection():
 
 async def get_database():
     return database
+
+
+logging.basicConfig(
+    level=settings.LOG_LEVEL,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+)
+logger = logging.getLogger(__name__)
