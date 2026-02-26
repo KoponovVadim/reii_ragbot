@@ -1,10 +1,11 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from database import Database
 import logging
 
 from core.config import settings
 from database.connections import database_connection, database_disconnection, get_database
+from api.endpoints import contact
 
 
 logging.basicConfig(
@@ -32,6 +33,8 @@ app = FastAPI(
     debug=settings.DEBUG,
     lifespan=lifespan
 )
+
+app.include_router(contact.router, prefix="/api")
 
 @app.get("/health")
 async def health_check(db: Database = Depends(get_database)):
